@@ -1,0 +1,51 @@
+select * from collectors
+select * from paintings
+select * from artists
+select * from sales
+
+---------#1
+select p_name, listed_price
+from paintings
+where listed_price > (select AVG(listed_price) from paintings)
+
+----#2
+select f_name,l_name from collectors
+where collectors.id in (select collector_id from sales)
+
+------#3
+select f_name, l_name,(collectors.id)
+from collectors 
+inner join sales on
+collectors.id = sales.collector_id;
+
+---------#3
+select f_name, last_name, id, t_sales.tl from artists
+join(
+select count(*) as tl, artist_id
+from sales
+group by artist_id) as t_sales on
+t_sales.artist_id = id
+
+select f_name, last_name, id, t_sales.tl from artists
+join(
+select sum(sales_price) as tl, artist_id
+from sales
+group by artist_id) as t_sales on
+t_sales.artist_id = id
+
+--------- #4
+select f_name, l_name,(
+select count(*) from sales
+where collectors.id = sales.collector_id
+) from collectors
+
+
+----------#5
+SELECT f_name, last_name
+FROM artists
+WHERE NOT EXISTS (
+  SELECT *
+  FROM sales
+  WHERE sales.artist_id = artists.id
+);
+select * from sales

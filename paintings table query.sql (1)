@@ -1,0 +1,29 @@
+use Practice
+
+create table paintings(
+id int,
+p_name varchar,
+artist_id int primary key not null,
+listed_price int
+)
+
+create table artists(
+id int primary key not null,
+f_name varchar,
+last_name varchar
+)
+
+create table collectors(
+id int,
+f_name varchar,
+l_name varchar
+)
+
+create table sales(
+s_id int,
+d_entry date,
+painting_id int,
+artist_id int,
+collector_id int,
+sales_price int
+)
