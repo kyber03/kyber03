@@ -1,6 +1,6 @@
 - 👋 Hi, I’m Ubaidullah
 - 👀 I’m passionate for web developing
-- 🌱 I’m currently Mastering front-end tools
+- 🌱 I’m currently practicing DSA, solved 70+ problems in geeksforgeeks, leetcode
 - 💞️ I’m looking to collaborate on web development projects
 - 📫 How to reach me Ubai0312@gmail.com
 
